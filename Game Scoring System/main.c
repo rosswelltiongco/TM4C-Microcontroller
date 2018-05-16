@@ -28,6 +28,7 @@ int main(void){
 	SysTick_Init(8000000);        // initialize SysTick timer to half a second each
 	EnableInterrupts();           // Global Interrupt enable
 	GPIO_PORTF_DATA_R = 0x02;  // LED is red at start
+	timer_count = 0;
   while(1){	
 		if (count1 >= 3){
 			GPIO_PORTF_DATA_R = 0x08;  // Player 1 wins: Green
@@ -35,6 +36,7 @@ int main(void){
 		if (count2 >= 3){
 			GPIO_PORTF_DATA_R = 0x04;  // Player 2 wins: Blue
 		}
+		WaitForInterrupt();
   } //While(1)
 } //Main
 
