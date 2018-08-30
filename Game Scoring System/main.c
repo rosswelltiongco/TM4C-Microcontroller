@@ -20,7 +20,20 @@ void PortF_Init(void);
 void GPIOPortF_Handler(void);
 //void GPIOPortB_Handler(void);
 void SysTick_Init(unsigned long period);
-
+void delay(unsigned long int time)    // This function provides delay in terms of seconds
+{
+		//Roughly 1 second delay on 16MHz TM4C
+    unsigned char i,j,k,l;
+ 
+    for(i = 0; i < time; i++){
+        for(j=0; j<250; j++){
+					for(k=0; k< 250; k++){
+						for (l=0; l< 60; l++){
+						}
+					}
+				}
+		}
+}
 
 //Subroutines
 int main(void){
@@ -32,9 +45,15 @@ int main(void){
   while(1){	
 		if (count1 >= 3){
 			GPIO_PORTF_DATA_R = 0x08;  // Player 1 wins: Green
+			delay(3);
+			GPIO_PORTF_DATA_R = 0x02;  // LED is red at start
+			delay(90);
 		}
 		if (count2 >= 3){
 			GPIO_PORTF_DATA_R = 0x04;  // Player 2 wins: Blue
+			delay(3);
+			GPIO_PORTF_DATA_R = 0x02;  // LED is red at start
+			delay(90);
 		}
 		WaitForInterrupt();
   } //While(1)
