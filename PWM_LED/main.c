@@ -1,7 +1,7 @@
 //Rosswell Tiongco
 //016091762
 
-// Onboard LEDs are pwm driven with raised or lowered brightness from
+// Onboard LEDs are softwtare pwm driven with raised or lowered brightness from
 // onboard pushbuttons
 
 // 1. Pre-processor Directives Section
