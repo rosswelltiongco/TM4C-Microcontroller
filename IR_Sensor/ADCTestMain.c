@@ -33,8 +33,10 @@ void EnableInterrupts(void);  // Enable interrupts
 long StartCritical (void);    // previous I bit, disable interrupts
 void EndCritical(long sr);    // restore I bit to previous value
 void WaitForInterrupt(void);  // low power mode
+volatile unsigned long  getCm(volatile unsigned long ADCvalue);
 
 volatile unsigned long ADCvalue;
+volatile unsigned long  cm;
 // The digital number ADCvalue is a representation of the voltage on PE4 
 // voltage  ADCvalue
 // 0.00V     0
@@ -57,6 +59,21 @@ int main(void){unsigned long volatile delay;
     GPIO_PORTF_DATA_R |= 0x04;          // profile
     ADCvalue = ADC0_InSeq3();
     GPIO_PORTF_DATA_R &= ~0x04;
+		cm = getCm(ADCvalue);
     for(delay=0; delay<100000; delay++){};
   }
 }
+
+
+volatile unsigned long  getCm(volatile unsigned long ADCvalue){
+	// To calculate the ~distance with this factor:
+	// (-> distance ~ 26 / voltage
+	// Ex:  26 / [ (Vref*adresult) / 1024 ]   =   (26 * 1024) / (Vref * adresult)
+	//volatile unsigned long cm = 26/((3.3*ADCvalue)/4096);
+	//cm = 241814/ADCvalue*(0-4096);
+	//volatile unsigned long cm = 26/((5*ADCvalue)/4096);
+	//volatile unsigned long cm = ((5*ADCvalue)/4096);
+	cm = -2.6238372 + 46332.8701/ADCvalue;
+	return cm;
+}
+	
