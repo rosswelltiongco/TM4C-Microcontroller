@@ -2,3 +2,4 @@
 .\adctestmain.o: ADCSWTrigger.h
 .\adctestmain.o: ../tm4c123gh6pm.h
 .\adctestmain.o: PLL.h
+.\adctestmain.o: Nokia5110.h

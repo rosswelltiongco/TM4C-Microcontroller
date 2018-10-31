@@ -27,16 +27,21 @@
 #include "ADCSWTrigger.h"
 #include "../tm4c123gh6pm.h"
 #include "PLL.h"
+#include "Nokia5110.h"
 
 void DisableInterrupts(void); // Disable interrupts
 void EnableInterrupts(void);  // Enable interrupts
 long StartCritical (void);    // previous I bit, disable interrupts
 void EndCritical(long sr);    // restore I bit to previous value
 void WaitForInterrupt(void);  // low power mode
-volatile unsigned long  getCm(volatile unsigned long ADCvalue);
+void Display_Info(volatile unsigned long cm);
+unsigned int getCm(unsigned long ADCvalue);
+unsigned int getPercent(unsigned long ADCvalue);
+
 
 volatile unsigned long ADCvalue;
 volatile unsigned long  cm;
+volatile unsigned long  pct;
 // The digital number ADCvalue is a representation of the voltage on PE4 
 // voltage  ADCvalue
 // 0.00V     0
@@ -60,20 +65,25 @@ int main(void){unsigned long volatile delay;
     ADCvalue = ADC0_InSeq3();
     GPIO_PORTF_DATA_R &= ~0x04;
 		cm = getCm(ADCvalue);
-    for(delay=0; delay<100000; delay++){};
+		pct = getPercent(ADCvalue);
+		//Display_Info(cm);
   }
 }
 
 
-volatile unsigned long  getCm(volatile unsigned long ADCvalue){
-	// To calculate the ~distance with this factor:
-	// (-> distance ~ 26 / voltage
-	// Ex:  26 / [ (Vref*adresult) / 1024 ]   =   (26 * 1024) / (Vref * adresult)
-	//volatile unsigned long cm = 26/((3.3*ADCvalue)/4096);
-	//cm = 241814/ADCvalue*(0-4096);
-	//volatile unsigned long cm = 26/((5*ADCvalue)/4096);
-	//volatile unsigned long cm = ((5*ADCvalue)/4096);
-	cm = -2.6238372 + 46332.8701/ADCvalue;
-	return cm;
+unsigned int getCm(unsigned long ADCvalue){
+	return -2.6238372 + 46332.8701/ADCvalue;
+}
+
+unsigned int getPercent(unsigned long ADCvalue){
+	pct = ADCvalue/40;
+	if (pct >= 100)	pct = 100;
+	return pct;
 }
 	
+
+void Display_Info(volatile unsigned long cm){
+	Nokia5110_Clear();
+  Nokia5110_OutString("CM:    ");
+	Nokia5110_OutUDec(cm);
+}
