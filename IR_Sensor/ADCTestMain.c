@@ -39,7 +39,7 @@ unsigned int getCm(unsigned long ADCvalue);
 unsigned int getPercent(unsigned long ADCvalue);
 unsigned int getLookup(unsigned long ADCvalue);
 unsigned int getAbs(int n);
-void Delay(void);
+void Delay(unsigned int count);
 
 volatile unsigned long ADCvalue;
 volatile unsigned long  cm;
@@ -72,7 +72,7 @@ int main(void){unsigned long volatile delay;
 		lookupCm = getLookup(ADCvalue);
 		pct = getPercent(ADCvalue);
 		Display_Info(cm);
-		Delay();
+		Delay(3);
   }
 }
 
@@ -97,6 +97,10 @@ void Display_Info(volatile unsigned long cm){
 	Nokia5110_SetCursor(0, 2);
 	Nokia5110_OutString("Tbl:");
 	Nokia5110_OutUDec(lookupCm);
+	
+	Nokia5110_SetCursor(0, 4);
+	Nokia5110_OutString("ADC:");
+	Nokia5110_OutUDec(ADCvalue);
 }
 
 unsigned int getAbs(int n) 
@@ -122,9 +126,13 @@ unsigned int getLookup(unsigned long ADCvalue){
 }
 	
 	
-void Delay(void){unsigned long volatile time;
-  time = 2*727240*50/91;  // 0.1sec
-  while(time){
-		time--;
-  }
+void Delay(unsigned int count){
+	unsigned long volatile time;
+	unsigned int i = 0;
+	for (i = 0; i < count; i ++){
+		time = 2*727240*50/91;  // 0.1sec
+		while(time){
+			time--;
+		}
+	}
 }
