@@ -420,6 +420,16 @@
               <FileType>1</FileType>
               <FilePath>.\Period_Measurement_Timeout.c</FilePath>
             </File>
+            <File>
+              <FileName>Nokia5110.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Nokia5110.c</FilePath>
+            </File>
+            <File>
+              <FileName>Nokia5110.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Nokia5110.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

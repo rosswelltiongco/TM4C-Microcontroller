@@ -151,9 +151,9 @@
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>.\Period_Measurement.c</Filename>
+          <Filename>.\Period_Measurement_Timeout.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\Timer0APWM\Period_Measurement.c\55</Expression>
+          <Expression></Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
@@ -181,21 +181,6 @@
           <count>4</count>
           <WinNumber>1</WinNumber>
           <ItemText>OutOfRange,0x0A</ItemText>
-        </Ww>
-        <Ww>
-          <count>5</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>done,0x0A</ItemText>
-        </Ww>
-        <Ww>
-          <count>6</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>timeout,0x0A</ItemText>
-        </Ww>
-        <Ww>
-          <count>7</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>misvalue,0x0A</ItemText>
         </Ww>
       </WatchWindow1>
       <Tracepoint>
@@ -268,7 +253,7 @@
       <Focus>0</Focus>
       <ColumnNumber>21</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>47</TopLine>
+      <TopLine>48</TopLine>
       <CurrentLine>57</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\SysTick.c</PathWithFileName>
@@ -284,11 +269,11 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>46</TopLine>
+      <CurrentLine>55</CurrentLine>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\Period_Measurement.c</PathWithFileName>
-      <FilenameWithoutPath>Period_Measurement.c</FilenameWithoutPath>
+      <PathWithFileName>.\Period_Measurement_Timeout.c</PathWithFileName>
+      <FilenameWithoutPath>Period_Measurement_Timeout.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

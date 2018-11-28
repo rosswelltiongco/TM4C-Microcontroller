@@ -416,9 +416,9 @@
               <FilePath>.\SysTick.c</FilePath>
             </File>
             <File>
-              <FileName>Period_Measurement.c</FileName>
+              <FileName>Period_Measurement_Timeout.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Period_Measurement.c</FilePath>
+              <FilePath>.\Period_Measurement_Timeout.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -2,6 +2,7 @@
 ".\startup.o"
 ".\systick.o"
 ".\period_measurement_timeout.o"
+".\nokia5110.o"
 --library_type=microlib --ro-base 0x00000000 --entry 0x00000000 --rw-base 0x20000000 --entry Reset_Handler --first __Vectors --strict --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list ".\Timer0APWM.map" -o .\Timer0APWM.axf

@@ -23,6 +23,8 @@
 #include <stdint.h>
 #include "SysTick.h"
 #include "tm4c123gh6pm.h"
+#include "Nokia5110.h"
+
 
 #define MC_LEN 0.0625      // length of one machine cyce in microsecond for 16MHz clock
 #define SOUND_SPEED 0.0343 // centimeter per micro-second
@@ -44,14 +46,37 @@ uint32_t second_time = 0;
 uint32_t first_read=0, second_read=0;
 uint8_t OutOfRange = 0;
 
+void Delay(unsigned int count){
+	unsigned long volatile time;
+	unsigned int i = 0;
+	for (i = 0; i < count; i ++){
+		time = 2*727240*50/91;  // 0.1sec
+		while(time){
+			time--;
+		}
+	}
+}
+
+void Display_Info(uint32_t distance){
+	
+	Nokia5110_Clear();
+  Nokia5110_OutString("D:");
+	Nokia5110_OutUDec(distance);
+}
+
+
+
 int main(void){
 	
 //  PLL_Init(Bus80MHz);               // 80 MHz clock
+	Nokia5110_Init();
 	SysTick_Init();         // use default 16MHz clock
   Timer0_Init();          // initialize timer0A
   Timer1_Init();	
   EnableInterrupts();
   while(1){
+		Display_Info(distance);
+		Delay(1);
 		GPIO_PORTB_DATA_R &= ~0x80; // send low to trigger
 		SysTick_Wait1us(2);
 		GPIO_PORTB_DATA_R |= 0x80; // send high to trigger
