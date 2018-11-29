@@ -27,7 +27,7 @@
 
 
 #define MC_LEN 0.0625      // length of one machine cyce in microsecond for 16MHz clock
-#define SOUND_SPEED 0.0343 // centimeter per micro-second
+#define SOUND_SPEED 0.04 // centimeter per micro-second //used to be .0343
 #define MAX_DURATION 0xFFFF
 
 void Timer0_Init(void);

@@ -1,7 +1,7 @@
 Dependencies for Project 'Timer0APeriodMeasurement', Target 'Timer0A_Period_Measurement': (DO NOT MODIFY !)
 F (.\startup.s)(0x5BFEEFD2)(--cpu Cortex-M4 --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary--list .\startup.lst --xref -o .\startup.o --depend .\startup.d)
 F (.\SysTick.c)(0x5BFEEFD2)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\..-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\systick.o --omf_browse .\systick.crf --depend .\systick.d)
-F (.\Period_Measurement_Timeout.c)(0x5BFF03FE)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\..-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\period_measurement_timeout.o --omf_browse .\period_measurement_timeout.crf --depend .\period_measurement_timeout.d)
+F (.\Period_Measurement_Timeout.c)(0x5BFFA38E)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\..-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\period_measurement_timeout.o --omf_browse .\period_measurement_timeout.crf --depend .\period_measurement_timeout.d)
 I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C89844)
 I (SysTick.h)(0x5BFEEFD2)
 I (tm4c123gh6pm.h)(0x5BFEEFD3)
